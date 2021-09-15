@@ -36,6 +36,7 @@ const App = (function () {
   const modalParagraphEl = document.querySelector(".modal__box--p");
   const countPlayersButton = document.querySelector(".count-players");
   const teamRecordButton = document.querySelector(".team-record");
+  const crossButton = document.querySelector(".modal__box--i");
 
   // Setting the team and players
   const p1 = new Player("Jalen Green", "SG", "6'5''", 186);
@@ -57,15 +58,23 @@ const App = (function () {
 
   const listeners = function () {
     countPlayersButton.addEventListener("click", function () {
-      modalEl.style.top = 0;
+      modalEl.style.display = "flex";
       setValue(modalTitleEl, "Total Players");
       setValue(modalParagraphEl, houstonRockets.countPlayers());
     });
 
     teamRecordButton.addEventListener("click", function () {
-      modalEl.style.top = 0;
+      modalEl.style.display = "flex";
       setValue(modalTitleEl, "Previous season record");
       setValue(modalParagraphEl, houstonRockets.giveRecord());
+    });
+
+    crossButton.addEventListener("click", function () {
+      modalEl.style.display = "none";
+    });
+
+    window.addEventListener("click", function (e) {
+      if (e.target === modalEl) modalEl.style.display = "none";
     });
   };
 
