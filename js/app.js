@@ -31,10 +31,11 @@ const App = (function () {
   // caching the DOM
   const teamNameEl = document.querySelector("h1");
   const dashboardMainEl = document.querySelector(".dashboard__main");
+  const modalEl = document.querySelector(".modal");
   const modalTitleEl = document.querySelector(".modal__box--h2");
   const modalParagraphEl = document.querySelector(".modal__box--p");
-  const countPlayersEl = document.querySelector(".count-players");
-  const teamRecordEl = document.querySelector(".team-record");
+  const countPlayersButton = document.querySelector(".count-players");
+  const teamRecordButton = document.querySelector(".team-record");
 
   // Setting the team and players
   const p1 = new Player("Jalen Green", "SG", "6'5''", 186);
@@ -52,6 +53,20 @@ const App = (function () {
   // Methods
   const setValue = function (elem, value) {
     return (elem.innerHTML = value);
+  };
+
+  const listeners = function () {
+    countPlayersButton.addEventListener("click", function () {
+      modalEl.style.top = 0;
+      setValue(modalTitleEl, "Total Players");
+      setValue(modalParagraphEl, houstonRockets.countPlayers());
+    });
+
+    teamRecordButton.addEventListener("click", function () {
+      modalEl.style.top = 0;
+      setValue(modalTitleEl, "Previous season record");
+      setValue(modalParagraphEl, houstonRockets.giveRecord());
+    });
   };
 
   // Render dashboard
@@ -73,6 +88,7 @@ const App = (function () {
       `;
       setValue(teamNameEl, houstonRockets.teamName);
       setValue(dashboardMainEl, content);
+      listeners();
     }
   };
 
