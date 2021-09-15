@@ -30,13 +30,11 @@ import Team from "./team.js";
 const App = (function () {
   // caching the DOM
   const teamNameEl = document.querySelector("h1");
-  const playerNameEl = document.querySelector(".dashboard__player--playerName");
-  const playerPositionEl = document.querySelector(
-    ".dashboard__player--position"
-  );
-  const playerHeightEl = document.querySelector(".dashboard__player--height");
-  const playerWeightEl = document.querySelector(".dashboard__player--weight");
   const dashboardMainEl = document.querySelector(".dashboard__main");
+  const modalTitleEl = document.querySelector(".modal__box--h2");
+  const modalParagraphEl = document.querySelector(".modal__box--p");
+  const countPlayersEl = document.querySelector(".count-players");
+  const teamRecordEl = document.querySelector(".team-record");
 
   // Setting the team and players
   const p1 = new Player("Jalen Green", "SG", "6'5''", 186);
