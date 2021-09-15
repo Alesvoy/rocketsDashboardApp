@@ -1,4 +1,5 @@
-export default function Team(players, record) {
+export default function Team(teamName, players, record) {
+  this.teamName = teamName;
   this.players = players;
   this.record = record;
 }
