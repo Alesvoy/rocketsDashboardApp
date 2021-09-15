@@ -42,6 +42,27 @@ body {
   flex: 1 0 40%;
 }
 
+.buttons {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  padding: 2rem;
+  flex-basis: 40%;
+  border: none;
+  background: #333333;
+  color: #fff;
+  transition: all 0.3s ease-in;
+  border-radius: 15px;
+}
+
+.button:hover {
+  background: #bf1313;
+}
+
 .dashboard__main--playerImg {
   max-width: 100%;
 }
